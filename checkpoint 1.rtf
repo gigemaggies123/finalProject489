@@ -1,0 +1,39 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset128 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset128 Liberation Sans{\*\falt Arial};}{\f5\fnil\fprq2\fcharset128 WenQuanYi Zen Hei;}{\f6\fnil\fprq2\fcharset128 Lohit Hindi;}{\f7\fnil\fprq0\fcharset128 Lohit Hindi;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033 Normal;}
+{\s15\sbasedon0\snext16\sb240\sa120\keepn\hich\af5\dbch\af6\afs28\loch\f4\fs28 Heading;}
+{\s16\sbasedon0\snext16\sb0\sa120 Text body;}
+{\s17\sbasedon16\snext17\sb0\sa120\dbch\af7 List;}
+{\s18\sbasedon0\snext18\sb120\sa120\noline\i\dbch\af7\afs24\ai\fs24 Caption;}
+{\s19\sbasedon0\snext19\noline\dbch\af7 Index;}
+}{\info{\author Da }{\creatim\yr2013\mo4\dy11\hr23\min46}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment LibreOffice}{\vern3500}}\deftab709
+
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse195\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\pgdscnxt0 Default;}}
+\formshade\paperh15840\paperw12240\margl1134\margr1134\margt1134\margb1134\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+\pgndec\pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\rtlch \ltrch\loch
+CSCE 489 Final Project checkpoint 1}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033\rtlch \ltrch\loch
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b\ab\rtlch \ltrch\loch
+Summary and descriptive statistics of your data}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b0\ab0\rtlch \ltrch\loch
+The data that I've gathered is in csv form and has information on every single recruit that signed a Letter of Intent to a Division 1 football team in the last 11 years (the last signing day was Feb. 2013). Each recruit has a name, school, state rank, rivals rank, position rank, national rank, height, weight forty time, home town, home state, year, position, high school name, and picture url.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033\b\ab\rtlch \ltrch\loch
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b\ab\rtlch \ltrch\loch
+Data Cleaning steps taken}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b0\ab0\rtlch \ltrch\loch
+I used scrapy on rivals to get all of their data from 2002 to 2013 on 116 teams, and as more teams joined division 1 I will add them (not done yet). I scraped about half of my data before yahoo (owner of rivals) shut me down. I've set a delay now so that hopefully next time I can get all of the data. I've also found a FIPS code and county city csv. These will be used to stick the players in their FIPS zone. Also I think I will get a new county code csv because this one is missing certain suburbs. I've also used some regex to split city and state, and also to translate the height from x' xx\uc3 \u8221\'e2\'80\'9d to xx inches. Lastly, I will use google refine to change all Ft. St. etc to fort and saint etc. for the cities to match. All in all rivals pretty much has really good data ready to be used.\uc1 }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033\b\ab\rtlch \ltrch\loch
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b\ab\rtlch \ltrch\loch
+Insights and next steps}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b0\ab0\rtlch \ltrch\loch
+The data I've gathered is great and I think there will be a lot of possibilities with this. What I picture now is a section to chose where the recruits are from (entire US, certain states, counties) and then filter them based on stats (height, weight, 40 time, star, year), and then how to view the output (which school they chose for college or which state) and then plot on the map.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033\b0\ab0\rtlch \ltrch\loch
+
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\hich\af5\langfe2052\dbch\af6\afs24\alang1081\loch\f3\fs24\lang1033{\b0\ab0\rtlch \ltrch\loch
+With the data in hand I need to start working on the map. I know I can get a svg map built no problem but I have to build a chloropleth on the web which probably means javascript so I can make the chart active. I would like to see if google charts can do something like this, if not then explore alternate routes. }
+\par }
