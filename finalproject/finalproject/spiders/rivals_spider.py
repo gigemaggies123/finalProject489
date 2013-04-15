@@ -9,7 +9,7 @@ class DmozSpider(BaseSpider):
     name = "finalproject"
     allowed_domains = ["rivals.yahoo.com"]
 
-    DOWNLOAD_DELAY = 50
+    DOWNLOAD_DELAY = 2
 
     beginningURL = "http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/"
 
@@ -35,102 +35,102 @@ class DmozSpider(BaseSpider):
     colorado = "colorado-18"
     iowaSt = "iowastate-19"
     kansas = "kansas-20"
-    kState = "kansasstate-21"
-    mizzou = "missouri-22"
-    nebraska = "nebraska-23"
-    oklahoma = "oklahoma-24"
-    okSt = "oklahomastate-25"
-    illinois = "illinois-26"
-    indiana = "indiana-27"
-    iowa = "iowa-28"
-    michigan = "michigan-29"
-    michiganSt = "michiganstate-30"  
-    minnesota = "minnesota-31"
-    northwestern = "northwestern-32"
-    ohioSt = "ohiostate-33"
-    pennSt = "pennstate-34"
-    purdue = "purdue-35"
-    wisconsin = "wisconsin-36"
-    arkansasState = "arkansasstate-37"
-    laTech = "louisianatech-38"
-    nevada = "nevada-39"
-    unlv = "unlv-40"
-    newMexicoSt = "newmexicostate-41"
-    northernIllinois = "northernillinois-42"
-    sjsu = "sanjosestate-44"
-    laLa = "louisianalafayette-45"
-    utahSt = "utahstate-46"
-    akron = "akron-47"
-    ballState = "ballstate-48"
-    bowlingGreen = "bowlinggreen-49"
-    centralMichigan = "centralmichigan-50"
-    easternMichigan = "easternmichigan-51"
-    kentSt = "kentstate-52"
-    miamiOh = "miamioh-53"
-    ohio = "ohio-54"
-    toledo = "toledo-55"
-    westernMichigan = "westernmichigan-56"
-    arizona = "arizona-57"
-    asu = "arizonastate-58"
-    california = "california-59"
-    oregon = "oregon-60"
-    oregonSt = "oregonstate-61"
-    usc = "usc-62"
-    stanford = "stanford-63"    
-    ucla = "ucla-64"
-    washington = "washington-65"
-    washSt = "washingtonstate-66"
-    florida = "florida-67"
-    georgia = "georgia-68"
-    kentucky = "kentucky-69"
-    scar = "southcarolina-70"
-    tennessee = "tennessee-71"
-    vanderbilt = "vanderbilt-72"    
-    alabama = "alabama-73"
-    arkansas = "arkansas-74"
-    auburn = "auburn-75"
-    lsu = "lsu-76"
-    oleMiss = "mississippi-77"
-    missSt = "mississippistate-78"
-    baylor = "baylor-79"
-    houston = "houston-80"
-    rice = "rice-81"
-    smu = "southernmethodist-82"
-    texas = "texas-83"
-    tamu = "texasam-84"
-    tcu	= "tcu-85"
-    texasTech ="texastech-86"
-    airForce = "airforce-87"
-    byu = "brighamyoung-88"
-    coloradoSt = "coloradostate-89"
-    fresnoSt = "fresnostate-90"
-    hawaii = "hawaii-91"
-    newMexico = "newmexico-92"
-    sdsu = "sandiegostate-93"
-    utah = "utah-94"
-    UTEP = "utep-95"
-    wyoming = "wyoming-96"
-    army = "army-97"
-    cincinnati = "cincinnati-98"
-    ecu = "eastcarolina-99"
-    louisville = "louisville-100"
-    memphis = "memphis-101"
-    laMonroe = "louisianamonroe-103"
-    notredame = "notredame-104"
-    southernMiss = "southernmiss-105"
-    tulane = "tulane-106"
-    tulsa = "tulsa-107"
-    boisest = "boisestate-112"
-    idaho = "idaho-114"
-    middleTennessee = "middletennessee-152"
-    marshall = "marshall-176"
-    northTexas = "northtexas-182"
-    uConn = "connecticut-202"
-    uab = "uab-207"
-    buffalo = "buffalo-208"
-    ucf = "ucf-210"
-    troy = "troy-222"
-    southFlorida = "southflorida-655"
+    #kState = "kansasstate-21"
+    #mizzou = "missouri-22"
+    #nebraska = "nebraska-23"
+    #oklahoma = "oklahoma-24"
+    #okSt = "oklahomastate-25"
+    #illinois = "illinois-26"
+    #indiana = "indiana-27"
+    #iowa = "iowa-28"
+    #michigan = "michigan-29"
+    #michiganSt = "michiganstate-30"  
+    #minnesota = "minnesota-31"
+    #northwestern = "northwestern-32"
+    #ohioSt = "ohiostate-33"
+    #pennSt = "pennstate-34"
+    #purdue = "purdue-35"
+    #wisconsin = "wisconsin-36"
+    #arkansasState = "arkansasstate-37"
+    #laTech = "louisianatech-38"
+    #nevada = "nevada-39"
+    #unlv = "unlv-40"
+    #newMexicoSt = "newmexicostate-41"
+    #northernIllinois = "northernillinois-42"
+    #sjsu = "sanjosestate-44"
+    #laLa = "louisianalafayette-45"
+    #utahSt = "utahstate-46"
+    #akron = "akron-47"
+    #ballState = "ballstate-48"
+    #bowlingGreen = "bowlinggreen-49"
+    #centralMichigan = "centralmichigan-50"
+    #easternMichigan = "easternmichigan-51"
+    #kentSt = "kentstate-52"
+    #miamiOh = "miamioh-53"
+    #ohio = "ohio-54"
+    #toledo = "toledo-55"
+    #westernMichigan = "westernmichigan-56"
+    #arizona = "arizona-57"
+    #asu = "arizonastate-58"
+    #california = "california-59"
+    #oregon = "oregon-60"
+    #oregonSt = "oregonstate-61"
+    #usc = "usc-62"
+    #stanford = "stanford-63"    
+    #ucla = "ucla-64"
+    #washington = "washington-65"
+    #washSt = "washingtonstate-66"
+    #florida = "florida-67"
+    #georgia = "georgia-68"
+    #kentucky = "kentucky-69"
+    #scar = "southcarolina-70"
+    #tennessee = "tennessee-71"
+    #vanderbilt = "vanderbilt-72"    
+    #alabama = "alabama-73"
+    #arkansas = "arkansas-74"
+    #auburn = "auburn-75"
+    #lsu = "lsu-76"
+    #oleMiss = "mississippi-77"
+    #missSt = "mississippistate-78"
+    #baylor = "baylor-79"
+    #houston = "houston-80"
+    #rice = "rice-81"
+    #smu = "southernmethodist-82"
+    #texas = "texas-83"
+    #tamu = "texasam-84"
+    #tcu = "tcu-85"
+    #texasTech ="texastech-86"
+    #airForce = "airforce-87"
+    #byu = "brighamyoung-88"
+    #coloradoSt = "coloradostate-89"
+    #fresnoSt = "fresnostate-90"
+    #hawaii = "hawaii-91"
+    #newMexico = "newmexico-92"
+    #sdsu = "sandiegostate-93"
+    #utah = "utah-94"
+    #UTEP = "utep-95"
+    #wyoming = "wyoming-96"
+    #army = "army-97"
+    #cincinnati = "cincinnati-98"
+    #ecu = "eastcarolina-99"
+    #louisville = "louisville-100"
+    #memphis = "memphis-101"
+    #laMonroe = "louisianamonroe-103"
+    #notredame = "notredame-104"
+    #southernMiss = "southernmiss-105"
+    #tulane = "tulane-106"
+    #tulsa = "tulsa-107"
+    #boisest = "boisestate-112"
+    #idaho = "idaho-114"
+    #middleTennessee = "middletennessee-152"
+    #marshall = "marshall-176"
+    #northTexas = "northtexas-182"
+    #uConn = "connecticut-202"
+    #uab = "uab-207"
+    #buffalo = "buffalo-208"
+    #ucf = "ucf-210"
+    #troy = "troy-222"
+    #southFlorida = "southflorida-655"
 
     twoSchools = [
         clemson,
@@ -153,102 +153,102 @@ class DmozSpider(BaseSpider):
         colorado,
         iowaSt,
         kansas,
-        kState,
-        mizzou,
-        nebraska,
-        oklahoma,
-        okSt,
-        illinois,
-        indiana,
-        iowa,
-        michigan,
-        michiganSt,
-        minnesota,
-        northwestern,
-        ohioSt,
-        pennSt,
-        purdue,
-        wisconsin,
-        arkansasState,
-        laTech,
-        nevada,
-        unlv,
-        newMexicoSt,
-        northernIllinois,
-        sjsu,
-        laLa,
-        utahSt,
-        akron,
-        ballState,
-        bowlingGreen,
-        centralMichigan,
-        easternMichigan,
-        kentSt,
-        miamiOh,
-        ohio,
-        toledo,
-        westernMichigan,
-        arizona,
-        asu,
-        california,
-        oregon,
-        oregonSt,
-        usc,
-        stanford,
-        ucla,
-        washington,
-        washSt,
-        florida,
-        georgia,
-        kentucky,
-        scar,
-        tennessee,
-        vanderbilt,
-        alabama,
-        arkansas,
-        auburn,
-        lsu,
-        oleMiss,
-        missSt,
-        baylor,
-        houston,
-        rice,
-        smu,
-        texas,
-        tamu,
-        tcu,
-        texasTech,
-        airForce,
-        byu,
-        coloradoSt,
-        fresnoSt,
-        hawaii,
-        newMexico,
-        sdsu,
-        utah,
-        UTEP,
-        wyoming,
-        army,
-        cincinnati,
-        ecu,
-        louisville,
-        memphis,
-        laMonroe,
-        notredame,
-        southernMiss,
-        tulane,
-        tulsa,
-        boisest,
-        idaho,
-        middleTennessee,
-        marshall,
-        northTexas,
-        uConn,
-        uab,
-        buffalo,
-        ucf,
-        troy,
-        southFlorida
+        #kState,
+        #mizzou,
+        #nebraska,
+        #oklahoma,
+        #okSt,
+        #illinois,
+        #indiana,
+        #iowa,
+        #michigan,
+        #michiganSt,
+        #minnesota,
+        #northwestern,
+        #ohioSt,
+        #pennSt,
+        #purdue,
+        #wisconsin,
+        #arkansasState,
+        #laTech,
+        #nevada,
+        #unlv,
+        #newMexicoSt,
+        #northernIllinois,
+        #sjsu,
+        #laLa,
+        #utahSt,
+        #akron,
+        #ballState,
+        #bowlingGreen,
+        #centralMichigan,
+        #easternMichigan,
+        #kentSt,
+        #miamiOh,
+        #ohio,
+        #toledo,
+        #westernMichigan,
+        #arizona,
+        #asu,
+        #california,
+        #oregon,
+        #oregonSt,
+        #usc,
+        #stanford,
+        #ucla,
+        #washington,
+        #washSt,
+        #florida,
+        #georgia,
+        #kentucky,
+        #scar,
+        #tennessee,
+        #vanderbilt,
+        #alabama,
+        #arkansas,
+        #auburn,
+        #lsu,
+        #oleMiss,
+        #missSt,
+        #baylor,
+        #houston,
+        #rice,
+        #smu,
+        #texas,
+        #tamu,
+        #tcu,
+        #texasTech,
+        #airForce,
+        #byu,
+        #coloradoSt,
+        #fresnoSt,
+        #hawaii,
+        #newMexico,
+        #sdsu,
+        #utah,
+        #UTEP,
+        #wyoming,
+        #army,
+        #cincinnati,
+        #ecu,
+        #louisville,
+        #memphis,
+        #laMonroe,
+        #notredame,
+        #southernMiss,
+        #tulane,
+        #tulsa,
+        #boisest,
+        #idaho,
+        #middleTennessee,
+        #marshall,
+        #northTexas,
+        #uConn,
+        #uab,
+        #buffalo,
+        #ucf,
+        #troy,
+        #southFlorida
     ]
 
     start_urls = []
