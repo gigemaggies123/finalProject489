@@ -1,0 +1,363 @@
+from scrapy.spider import BaseSpider
+from scrapy.selector import HtmlXPathSelector
+import re
+from datetime import *
+
+from finalproject.items import FinalProjectItem
+
+class DmozSpider(BaseSpider):
+    name = "finalproject"
+    allowed_domains = ["rivals.yahoo.com"]
+
+    DOWNLOAD_DELAY = 2
+
+    beginningURL = "http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/"
+
+    twoToThirteen = range(2002, 2014, 1)
+
+    clemson = "clemson-1"
+    duke = "duke-2"
+    floridaSt = "floridastate-3"
+    gaTech = "georgiatech-4"
+    maryland = "maryland-5"
+    unc = "northcarolina-6"
+    ncSt = "northcarolinastate-7"
+    virginia = "virginia-8"
+    wakeForest = "wakeforest-9"
+    bostonCollege = "bostoncollege-10"
+    miamiFl = "miamifl-11"
+    pitt = "pittsburgh-12"
+    rutgers = "rutgers-13"
+    syracuse = "syracuse-14"
+    temple = "temple-15"
+    vaTech = "virginiatech-16"
+    westVa = "westvriginia-17"
+    colorado = "colorado-18"
+    iowaSt = "iowastate-19"
+    kansas = "kansas-20"
+    kState = "kansasstate-21"
+    mizzou = "missouri-22"
+    nebraska = "nebraska-23"
+    oklahoma = "oklahoma-24"
+    okSt = "oklahomastate-25"
+    illinois = "illinois-26"
+    indiana = "indiana-27"
+    iowa = "iowa-28"
+    michigan = "michigan-29"
+    michiganSt = "michiganstate-30"  
+    minnesota = "minnesota-31"
+    northwestern = "northwestern-32"
+    ohioSt = "ohiostate-33"
+    pennSt = "pennstate-34"
+    purdue = "purdue-35"
+    wisconsin = "wisconsin-36"
+    arkansasState = "arkansasstate-37"
+    laTech = "louisianatech-38"
+    nevada = "nevada-39"
+    unlv = "unlv-40"
+    newMexicoSt = "newmexicostate-41"
+    northernIllinois = "northernillinois-42"
+    sjsu = "sanjosestate-44"
+    laLa = "louisianalafayette-45"
+    utahSt = "utahstate-46"
+    akron = "akron-47"
+    ballState = "ballstate-48"
+    bowlingGreen = "bowlinggreen-49"
+    centralMichigan = "centralmichigan-50"
+    easternMichigan = "easternmichigan-51"
+    kentSt = "kentstate-52"
+    miamiOh = "miamioh-53"
+    ohio = "ohio-54"
+    toledo = "toledo-55"
+    westernMichigan = "westernmichigan-56"
+    arizona = "arizona-57"
+    asu = "arizonastate-58"
+    california = "california-59"
+    oregon = "oregon-60"
+    oregonSt = "oregonstate-61"
+    usc = "usc-62"
+    stanford = "stanford-63"    
+    ucla = "ucla-64"
+    washington = "washington-65"
+    washSt = "washingtonstate-66"
+    florida = "florida-67"
+    georgia = "georgia-68"
+    kentucky = "kentucky-69"
+    scar = "southcarolina-70"
+    tennessee = "tennessee-71"
+    vanderbilt = "vanderbilt-72"    
+    alabama = "alabama-73"
+    arkansas = "arkansas-74"
+    auburn = "auburn-75"
+    lsu = "lsu-76"
+    oleMiss = "mississippi-77"
+    missSt = "mississippistate-78"
+    baylor = "baylor-79"
+    houston = "houston-80"
+    rice = "rice-81"
+    smu = "southernmethodist-82"
+    texas = "texas-83"
+    tamu = "texasam-84"
+    tcu = "tcu-85"
+    texasTech ="texastech-86"
+    airForce = "airforce-87"
+    byu = "brighamyoung-88"
+    coloradoSt = "coloradostate-89"
+    fresnoSt = "fresnostate-90"
+    hawaii = "hawaii-91"
+    newMexico = "newmexico-92"
+    sdsu = "sandiegostate-93"
+    utah = "utah-94"
+    UTEP = "utep-95"
+    wyoming = "wyoming-96"
+    army = "army-97"
+    cincinnati = "cincinnati-98"
+    ecu = "eastcarolina-99"
+    louisville = "louisville-100"
+    memphis = "memphis-101"
+    navy = "navy-102"
+    laMonroe = "louisianamonroe-103"
+    notredame = "notredame-104"
+    southernMiss = "southernmiss-105"
+    tulane = "tulane-106"
+    tulsa = "tulsa-107"
+    boisest = "boisestate-112"
+    idaho = "idaho-114"
+    middleTennessee = "middletennessee-152"
+    marshall = "marshall-176"
+    northTexas = "northtexas-182"
+    uConn = "connecticut-202"
+    uab = "uab-207"
+    buffalo = "buffalo-208"
+    ucf = "ucf-210"
+    troy = "troy-222"
+    southFlorida = "southflorida-655"
+    fau = "floridaatlantic-688"
+    fiu = "fiu-689"
+
+    twoSchools = [
+        clemson,
+        duke,
+        floridaSt,
+        gaTech,
+        maryland,
+        unc,
+        ncSt,
+        virginia,
+        wakeForest,
+        bostonCollege,
+        miamiFl,
+        pitt,
+        rutgers,
+        syracuse,
+        temple,
+        vaTech,
+        westVa,
+        colorado,
+        iowaSt,
+        kansas,
+        kState,
+        mizzou,
+        nebraska,
+        oklahoma,
+        okSt,
+        illinois,
+        indiana,
+        iowa,
+        michigan,
+        michiganSt,
+        minnesota,
+        northwestern,
+        ohioSt,
+        pennSt,
+        purdue,
+        wisconsin,
+        arkansasState,
+        laTech,
+        nevada,
+        unlv,
+	newMexicoSt,
+        northernIllinois,
+        sjsu,
+        laLa,
+        utahSt,
+        akron,
+        ballState,
+        bowlingGreen,
+        centralMichigan,
+        easternMichigan,
+        kentSt,
+        miamiOh,
+        ohio,
+        toledo,
+        westernMichigan,
+        arizona,
+        asu,
+        california,
+        oregon,
+        oregonSt,
+        usc,
+        stanford,
+        ucla,
+        washington,
+        washSt,
+        florida,
+        georgia,
+        kentucky,
+        scar,
+        tennessee,
+        vanderbilt,
+        alabama,
+        arkansas,
+        auburn,
+        lsu,
+        oleMiss,
+        missSt,
+        baylor,
+        houston,
+        rice,
+        smu,
+        texas,
+        tamu,
+        tcu,
+        texasTech,
+        airForce,
+        byu,
+        coloradoSt,
+        fresnoSt,
+        hawaii,
+        newMexico,
+        sdsu,
+        utah,
+        UTEP,
+        wyoming,
+        army,
+        cincinnati,
+        ecu,
+        louisville,
+        memphis,
+        laMonroe,
+        notredame,
+        southernMiss,
+        tulane,
+        tulsa,
+        boisest,
+        idaho,
+        middleTennessee,
+        marshall,
+        northTexas,
+        uConn,
+        uab,
+        buffalo,
+        ucf,
+        troy,
+        southFlorida,
+	navy,
+	fau,
+	fiu
+    ]
+
+    newSchools = [fau, fiu, navy]
+
+    start_urls = [
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2012/massachusetts-204",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2013/massachusetts-204",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2008/westernkentucky-224",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2009/westernkentucky-224",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2010/westernkentucky-224",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2011/westernkentucky-224",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2012/westernkentucky-224",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2013/westernkentucky-224",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2011/texasstate-185",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2012/texasstate-185",
+	"http://rivals.yahoo.com/footballrecruiting/football/recruiting/commitments/2013/texasstate-185"
+    ]
+
+    #for num in twoToThirteen:
+        #for school in twoSchools:
+            #start_urls.append(str(beginningURL) + str(num) + "/" + str(school))
+
+    for num in twoToThirteen:
+        for school in newSchools:
+            start_urls.append(str(beginningURL) + str(num) + "/" + str(school))
+            
+
+    def parse(self, response):
+        hxs = HtmlXPathSelector(response)
+        items = []
+        sites = hxs.select('//div[2]/table/tbody/tr')
+
+        for site in sites:
+            if site.select('th/a/text()').extract() == []:
+                continue
+            
+            item = FinalProjectItem()
+            item['School'] = hxs.select('//h1/strong/text()').extract()[0]
+            item['Year'] = hxs.select('//h1/em/text()').extract()[0]
+            item['Name'] = site.select('th/a/text()').extract()[0]
+	    if site.select('td[2]/text()').extract() != []:
+            	item['Position'] = site.select('td[2]/text()').extract()[0]
+	    else:
+		item['Position'] = ''
+            if site.select('td[3]/text()').extract() != []:
+                item['Location'] = site.select('td[3]/text()').extract()[0]
+            elif site.select('td[3]/div/text()').extract() != []:
+                item['Location'] = site.select('td[3]/div/text()').extract()[0]
+            else:
+                item['Location'] = ''
+
+            if site.select('td[3]/cite/text()').extract() != []:
+                item['HighSchool'] = site.select('td[3]/cite/text()').extract()[0]
+            elif site.select('td[3]/div/cite/text()').extract() != []:
+                item['HighSchool'] = site.select('td[3]/div/cite/text()').extract()[0]
+            else:
+                item['HighSchool'] = ''
+
+            if site.select('td[1]/img').extract() == []:
+                item['ImgURL'] = ''
+            else:
+                item['ImgURL'] = site.select('td[1]/img').extract()[0]
+                
+            if site.select('td[4]/text()').extract() != []:
+                item['Height'] = site.select('td[4]/text()').extract()[0]
+            else:
+                item['Height'] = 'N/A'
+                
+            if site.select('td[5]/text()').extract() != []:
+                item['Weight'] = site.select('td[5]/text()').extract()[0]
+            else:
+                item['Weight'] = 'N/A'
+                
+            if site.select('td[6]/text()').extract() != []:
+                item['FortyTime'] = site.select('td[6]/text()').extract()[0]
+            else:
+                item['FortyTime'] = 'N/A'
+                
+            if site.select('td[7]/text()').extract() != []:
+                item['Stars'] = site.select('td[7]/span/text()').extract()[0]
+            else:
+                item['Stars'] = 'Unevaluated'
+            
+            if site.select('td[8]/text()').extract() != []:
+                item['RivalsRanking'] = site.select('td[8]/text()').extract()[0]
+            else:
+                item['RivalsRanking'] = 'Unranked'
+                
+            if site.select('td[11]/text()').extract() != []:
+                item['PostionRank'] = site.select('td[11]/text()').extract()[0]
+            else:
+                item['PostionRank'] = 'Unranked'
+                
+            if site.select('td[12]/text()').extract() != []:    
+                item['NationalRank'] = site.select('td[12]/text()').extract()[0]
+            else:
+                item['NationalRank'] = 'Unranked'
+                
+            if site.select('td[13]/text()').extract() != []:
+                item['StateRank'] = site.select('td[13]/text()').extract()[0]
+            else:
+                item['StateRank'] = 'Unranked'
+            
+            items.append(item)
+        return items
+
